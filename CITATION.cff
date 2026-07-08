@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite the relevant paper(s) from the Neuralchemy Research Series."
+authors:
+  - family-names: "Jajoo"
+    given-names: "Sanskar"
+    affiliation: "Neuralchemy Labs"
+title: "AITL & AEOS: Autonomous Empirical Optimization System — Research Repository"
+version: 2.1.0
+date-released: 2026-05-24
+url: "https://github.com/m4vic/AEOS"
+keywords:
+  - autonomous-agents
+  - llm-evaluation
+  - sunk-cost-fallacy
+  - modality-paradox
+  - cognitive-anchoring
+  - multi-agent-systems
+  - ai-safety
+  - meta-reasoning
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Jajoo"
+      given-names: "Sanskar"
+      affiliation: "Neuralchemy Labs"
+  title: "The Autonomous Sunk-Cost Fallacy: Stopping Failures and Meta-Reasoning in LLMs Deployed within AEOS"
+  year: 2026
+  url: "https://zenodo.org/records/19846960"
+references:
+  - type: article
+    title: "AI In The Loop (AITL): A Systems Taxonomy for Closed-Loop Autonomous Evaluation"
+    authors:
+      - family-names: "Jajoo"
+        given-names: "Sanskar"
+    year: 2026
+    url: "https://zenodo.org/records/19551173"
+  - type: article
+    title: "The Modality Paradox in Autonomous LLM Engineering"
+    authors:
+      - family-names: "Jajoo"
+        given-names: "Sanskar"
+    year: 2026

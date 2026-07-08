@@ -1,0 +1,56 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment files with API keys
+.env
+.env.local
+
+# Large model files (PyTorch/HuggingFace weights)
+*.safetensors
+*.bin
+*.pth
+*.pt
+*.joblib
+*.onnx
+*.h5
+
+# Paper 2: Sunk-Cost Fallacy active logs & weights
+aeos_sunk_cost/best_*.joblib
+aeos_sunk_cost/best_*.pth
+aeos_sunk_cost/results/
+aeos_sunk_cost/data/
+
+# Paper 3: Modality Paradox active logs & weights
+experiments/modality_paradox/best_*.joblib
+experiments/modality_paradox/best_*.pth
+experiments/modality_paradox/data/
+experiments/modality_paradox/results/
+experiments/modality_paradox/paper3_thread_b/
+experiments/modality_paradox/paper3_thread_d/
+
+# Paper 1: AITL Blind NAS active logs & weights
+experiments/aitl_blind_nas/results/*.json
+!experiments/aitl_blind_nas/results/loss_curve.png
+
+# Archive folders containing heavy logs (local only, ignored from GitHub)
+/archive/
+/archive/**
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.toc
+*.bbl
+*.blg
+texput.log
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
