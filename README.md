@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚗 Autopilot: Zero to Hero
+# Autopilot: Zero to Hero
 
 ### Build autonomous AI agent loops from zero — and confront the reason they can't satisfy themselves.
 
