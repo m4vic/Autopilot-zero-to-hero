@@ -2,7 +2,7 @@
 
 # Autopilot: Zero to Hero
 
-### Build autonomous AI agent loops from zero — and confront the reason they can't satisfy themselves.
+### Build autonomous AI agent loops from zero and confront the reason they can't satisfy themselves.
 
 [![Read the Field Guide](https://img.shields.io/badge/📖_START_HERE-Read_the_Field_Guide-2ea44f?style=for-the-badge)](book/00-start-here.md)
 
