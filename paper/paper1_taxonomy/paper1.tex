@@ -38,8 +38,8 @@
 
 \author{
   Sanskar Jajoo\\
-  Independent Researcher, India\\
-  \url{https://github.com/m4vic}
+  Neuralchemy Labs, India\\
+  Code and guide: \url{https://github.com/m4vic/Autopilot-zero-to-hero}
 }
 
 \date{}
@@ -576,36 +576,37 @@ As AI systems deploy continuously and evaluation demands grow, AITL architecture
 
 \subsection{Code Repository}
 
-The full experimental code is available at: \url{https://github.com/m4vic/AITL}
+The full experimental code and the accompanying beginner's field guide are available at: \url{https://github.com/m4vic/Autopilot-zero-to-hero}
 
 Key files:
 \begin{itemize}[nosep]
-  \item \texttt{experiments/aeos/data\_loader.py}: Cover Type dataset logic
-  \item \texttt{experiments/aeos/agent.py}: LLM agent with pivot \& termination rules
-  \item \texttt{experiments/aeos/trainer.py}: Sandboxed code execution
-  \item \texttt{experiments/aeos/runner.py}: AITL orchestration loop
-  \item \texttt{experiments/aeos/plot\_advanced.py}: Step-frontier visualization
+  \item \texttt{experiments/aitl\_blind\_nas/data\_loader.py}: Cover Type dataset logic
+  \item \texttt{experiments/aitl\_blind\_nas/agent.py}: LLM agent with pivot \& termination rules
+  \item \texttt{experiments/aitl\_blind\_nas/trainer.py}: Sandboxed code execution
+  \item \texttt{experiments/aitl\_blind\_nas/runner.py}: AITL orchestration loop
 \end{itemize}
 
 \subsection{Reproduction Instructions}
 
 \begin{lstlisting}[language=bash]
-git clone https://github.com/m4vic/AITL.git
-cd AITL/experiments/aeos
+git clone https://github.com/m4vic/Autopilot-zero-to-hero.git
+cd Autopilot-zero-to-hero/experiments/aitl_blind_nas
 pip install torch torchvision scikit-learn matplotlib numpy openai
 
 # Cloud Agent experiment (OpenAI)
-export OPENAI_API_KEY="your-key-here"
-python runner.py --backend openai --model gpt-4o-mini
+# Set OPENAI_API_KEY, then edit the MODEL constant at the top of
+# runner.py (default: gpt-4o-mini), and run:
+python runner.py
 
-# Local Agent experiment (Ollama)
-# Ensure Ollama is running with qwen2.5-coder:7b
-python runner.py --backend ollama --model qwen2.5-coder:7b
+# Local Agent experiment (llama.cpp / Ollama)
+# Point BASE_URL and MODEL in runner.py at your local server
+# (see the file header for the exact configuration block), then run:
+python runner.py
 \end{lstlisting}
 
 \subsection{Full Experiment Log}
 
-Complete iteration-by-iteration results (all architectures, their code, loss, accuracy, and epochs run) are available in the repository under \texttt{results/run\_*.json}.
+The resulting loss curve for each run is written to \texttt{experiments/aitl\_blind\_nas/results/} when the script completes.
 
 % ===================================================================
 \bibliographystyle{plainnat}
