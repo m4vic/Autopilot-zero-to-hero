@@ -1,4 +1,4 @@
-# AEOS (Autonomous Empirical Optimization System) — Implementation Plan
+# AEOS (Autonomous Empirical Optimization System), Implementation Plan
 
 ## 1. What is AEOS?
 

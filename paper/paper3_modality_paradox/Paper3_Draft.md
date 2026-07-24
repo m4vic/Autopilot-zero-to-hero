@@ -6,15 +6,15 @@
 
 ## Abstract
 
-As Large Language Models (LLMs) scale to hundreds of billions of parameters, their reasoning capabilities improve but their fundamental cognitive architectures remain monolithic. In our previous work (Paper 2), we identified the *Autonomous Sunk-Cost Fallacy* — a failure mode where a single agent repeatedly pursues a failing strategy across hundreds of wasted iterations. The prevailing industry response is monolithic scaling ("Thinking Harder"): larger parameters or deeper Chain-of-Thought. We propose an alternative paradigm — **Cognitive Agentic Diversity** — composing functionally asymmetric models with distinct weight priors into cooperative ensembles. We evaluate this hypothesis in autonomous ML engineering across Tabular, Vision, and Text modalities (8 models × 3 modalities × 3+ runs each, N=132 total runs). We demonstrate that asymmetric dual-agents eliminate sunk-cost traps, yielding 10× compute efficiency gains in structured tasks. Furthermore, we reveal the "Modality Paradox": the models that fail catastrophically as reviewers on Tabular data become the optimal reviewers for Vision data, proving that task dimensionality dictates optimal persistence. Our findings demonstrate that asymmetric agentic design offers a highly efficient alternative to pure parameter scaling for autonomous engineering.
+As Large Language Models (LLMs) scale to hundreds of billions of parameters, their reasoning capabilities improve but their fundamental cognitive architectures remain monolithic. In our previous work (Paper 2), we identified the *Autonomous Sunk-Cost Fallacy*, a failure mode where a single agent repeatedly pursues a failing strategy across hundreds of wasted iterations. The prevailing industry response is monolithic scaling ("Thinking Harder"): larger parameters or deeper Chain-of-Thought. We propose an alternative paradigm, **Cognitive Agentic Diversity**, composing functionally asymmetric models with distinct weight priors into cooperative ensembles. We evaluate this hypothesis in autonomous ML engineering across Tabular, Vision, and Text modalities (8 models × 3 modalities × 3+ runs each, N=132 total runs). We demonstrate that asymmetric dual-agents eliminate sunk-cost traps, yielding 10× compute efficiency gains in structured tasks. Furthermore, we reveal the "Modality Paradox": the models that fail catastrophically as reviewers on Tabular data become the optimal reviewers for Vision data, proving that task dimensionality dictates optimal persistence. Our findings demonstrate that asymmetric agentic design offers a highly efficient alternative to pure parameter scaling for autonomous engineering.
 
-> **Framing note:** We deliberately avoid the term "Mixture of Experts" (MoE) in the sparse-routing sense (Mixtral, DeepSeekMoE). Our contribution is *agentic* diversity — different models playing functionally asymmetric roles (Reviewer vs. Coder) with genuinely different weight priors.
+> **Framing note:** We deliberately avoid the term "Mixture of Experts" (MoE) in the sparse-routing sense (Mixtral, DeepSeekMoE). Our contribution is *agentic* diversity, different models playing functionally asymmetric roles (Reviewer vs. Coder) with genuinely different weight priors.
 
 ---
 
 ## 1. Introduction
 
-In Paper 2 (Jajoo, 2026b), we deployed 13 LLMs into the Autonomous Empirical Optimization System (AEOS) and discovered the *Autonomous Sunk-Cost Fallacy*: when a single LLM begins to fail, it becomes trapped in unproductive loops — generating minor code variations for 50–100+ iterations rather than pivoting. General-purpose models like `llama3.1:8b` and `gemma4` consumed 3,400+ seconds while trapped in 8–9 distinct Sunk-Cost Episodes (SCEs), whereas modern code-tuned models (`qwen2.5-coder`) terminated gracefully in under 7 iterations.
+In Paper 2 (Jajoo, 2026b), we deployed 13 LLMs into the Autonomous Empirical Optimization System (AEOS) and discovered the *Autonomous Sunk-Cost Fallacy*: when a single LLM begins to fail, it becomes trapped in unproductive loops, generating minor code variations for 50-100+ iterations rather than pivoting. General-purpose models like `llama3.1:8b` and `gemma4` consumed 3,400+ seconds while trapped in 8-9 distinct Sunk-Cost Episodes (SCEs), whereas modern code-tuned models (`qwen2.5-coder`) terminated gracefully in under 7 iterations.
 
 Paper 2 proposed the Agent-Critic architecture as a solution. **This paper delivers the empirical proof across three fundamental ML modalities:** Tabular, Vision, and Text (N=132 runs). We demonstrate that Ensemble diversity across specialized agentic roles consistently beats monolithic scaling in engineering domains.
 
@@ -40,13 +40,13 @@ SCE count = total number of such blocks within a single autonomous run.
 
 ### 2.3 The AEOS Framework
 
-AEOS operates as a self-contained execution loop: (1) provide dataset dimensions, (2) the agent writes and executes a Python ML script, (3) the system returns validation accuracy/loss, (4) the agent decides whether to iterate or STOP. Extended-horizon safety caps (75–200 iterations) isolate intrinsic stopping behavior.
+AEOS operates as a self-contained execution loop: (1) provide dataset dimensions, (2) the agent writes and executes a Python ML script, (3) the system returns validation accuracy/loss, (4) the agent decides whether to iterate or STOP. Extended-horizon safety caps (75-200 iterations) isolate intrinsic stopping behavior.
 
 ### 2.4 Experiment Scale
 
 | Modality | Single-Agent Models | Dual-Agent Pairings | Runs per Config | Total Runs |
 |----------|:------------------:|:-------------------:|:---------------:|:----------:|
-| Tabular  | 8 | 10 | 3–7 | ~54 |
+| Tabular  | 8 | 10 | 3-7 | ~54 |
 | Vision   | 8 | 5  | 3   | ~39 |
 | Text     | 8 | 5  | 3   | ~39 |
 | **Total** | | | | **~132** |
@@ -90,10 +90,10 @@ We evaluated 8 single-agent models and 10 asymmetric dual-agent pairings across 
 
 **Key findings:**
 - The best dual-agent pairing (14b→16b) achieves **98.7% of best-single accuracy at 9.6% of compute cost**
-- **7 of 9 dual-agent pairings achieve 0.0 SCE** (with another at a near-zero 0.8 SCE) — the reviewer effectively eliminates sunk-cost in convex tabular environments, with one notable exception.
-- **Same-model control** (7b→7b, CADS=1): 92.81% — confirming that *any* second perspective helps, but weight asymmetry adds +0.9%
+- **7 of 9 dual-agent pairings achieve 0.0 SCE** (with another at a near-zero 0.8 SCE), the reviewer effectively eliminates sunk-cost in convex tabular environments, with one notable exception.
+- **Same-model control** (7b→7b, CADS=1): 92.81%, confirming that *any* second perspective helps, but weight asymmetry adds +0.9%
 
-**The qwen3.5:9b Paradox:** `qwen3.5:9b` as reviewer on Tabular is *catastrophic* — 75 iterations, 20.3 SCE, safety cap hit. Yet on Vision (below), it is the *best* reviewer. 
+**The qwen3.5:9b Paradox:** `qwen3.5:9b` as reviewer on Tabular is *catastrophic*, 75 iterations, 20.3 SCE, safety cap hit. Yet on Vision (below), it is the *best* reviewer. 
 
 ### 3.3 Vision: Full Leaderboards
 
@@ -123,7 +123,7 @@ We evaluated 8 single-agent models and 10 asymmetric dual-agent pairings across 
 
 *(Note: The homogeneous control ablation was executed for N=1 to establish the baseline diversity premium, as prior N=3 runs on structured data demonstrated near-zero variance for same-model pairings.)*
 
-**Vision Paradox:** The same `qwen3.5:9b` reviewer that was catastrophic on Tabular (20.3 SCE) becomes the **best reviewer on Vision** — its persistence breaks through local minima in the non-convex loss landscape. The 10.3 SCEs on Vision were *productive*, with accuracy still climbing at the safety cap. **Task dimensionality dictates persistence value.**
+**Vision Paradox:** The same `qwen3.5:9b` reviewer that was catastrophic on Tabular (20.3 SCE) becomes the **best reviewer on Vision**, its persistence breaks through local minima in the non-convex loss landscape. The 10.3 SCEs on Vision were *productive*, with accuracy still climbing at the safety cap. **Task dimensionality dictates persistence value.**
 
 ### 3.4 Text: The Honest Negative Result
 
@@ -140,7 +140,7 @@ We evaluated 8 single-agent models and 10 asymmetric dual-agent pairings across 
 | qwen2.5-coder:7b | 3 | 0.7831 | 0.8067 | 6.0 | 0.0 | 307 |
 | phi3:mini | 3 | 0.5035 | 0.7739 | 34.7 | 1.0 | 713 |
 
-**Best Dual-Agent:** `qwen2.5-coder:14b → deepseek-coder-v2:16b` at 0.8116 avg — **8.7 percentage points below the best single agent.** Reviewers consistently triggered premature termination on sparse text vectors. The mechanism behind this failure is that sparse NLP features lack the smooth, convex gradient of improvement seen in structured Tabular data. NLP feature engineering often requires semantic leaps that yield zero immediate validation gain for several iterations. The reviewer misinterprets this "flat" progress as a sunk-cost trap and prematurely issues a `STOP` directive, preventing the coder from discovering complex text features. This is an honest boundary condition for the dual-agent architecture.
+**Best Dual-Agent:** `qwen2.5-coder:14b → deepseek-coder-v2:16b` at 0.8116 avg, **8.7 percentage points below the best single agent.** Reviewers consistently triggered premature termination on sparse text vectors. The mechanism behind this failure is that sparse NLP features lack the smooth, convex gradient of improvement seen in structured Tabular data. NLP feature engineering often requires semantic leaps that yield zero immediate validation gain for several iterations. The reviewer misinterprets this "flat" progress as a sunk-cost trap and prematurely issues a `STOP` directive, preventing the coder from discovering complex text features. This is an honest boundary condition for the dual-agent architecture.
 
 ### 3.5 Cross-Modality Summary
 
@@ -168,7 +168,7 @@ Our findings highlight an honest boundary condition: Dual-agent architectures un
 
 ### 4.3 Towards Meta-Reasoning
 
-The Modality Paradox—where a model's effectiveness radically diverges based on data dimensionality—proves that static agentic architectures are insufficient. This necessitates a transition from hardcoded dual-agent loops towards dynamic Meta-Orchestrators (future work) that can inspect task dimensionality and dynamically compose the optimal agentic panel.
+The Modality Paradox, where a model's effectiveness radically diverges based on data dimensionality, proves that static agentic architectures are insufficient. This necessitates a transition from hardcoded dual-agent loops towards dynamic Meta-Orchestrators (future work) that can inspect task dimensionality and dynamically compose the optimal agentic panel.
 
 ---
 
@@ -180,4 +180,4 @@ Jajoo, S. (2026a). "AI In The Loop (AITL): A Systems Taxonomy for Closed-Loop Au
 Jajoo, S. (2026b). "The Autonomous Sunk-Cost Fallacy: Stopping Failures and Meta-Reasoning in LLMs." Neuralchemy Labs. https://zenodo.org/records/19846960
 
 ---
-*Neuralchemy Labs  —  AEOS Research Framework  —  https://www.neuralchemy.in/*
+*Neuralchemy Labs, AEOS Research Framework, https://www.neuralchemy.in/*

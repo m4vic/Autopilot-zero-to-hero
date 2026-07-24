@@ -1,6 +1,6 @@
 # Modality Paradox Experiments (Paper 3 Core System)
 
-> **New here?** This is the code behind **[Chapter 4 · Fixing It With Teams](../../book/04-fixing-it-with-teams.md)** of the beginner field guide — the two-agent (Reviewer + Coder) fix and the surprising "Modality Paradox" twist. Read that first for the plain-language version, then run the loops here.
+> **New here?** This is the code behind **[Chapter 4 · Fixing It With Teams](../../book/04-fixing-it-with-teams.md)** of the beginner field guide, the two-agent (Reviewer + Coder) fix and the surprising "Modality Paradox" twist. Read that first for the plain-language version, then run the loops here.
 
 [![Status: Preprint Ready](https://img.shields.io/badge/Status-Preprint_Ready-blue.svg)](#)
 [![Theme: Modality Dependent Stopping](https://img.shields.io/badge/Theme-Modality_Stopping_Anchor-green.svg)](#)
@@ -16,7 +16,7 @@ This system implements and benchmarks asymmetric multi-agent loops to analyze ho
 2. **Text**: Language models evaluating and processing structured or unstructured textual tasks.
 3. **Vision**: Multimodal vision tasks requiring pixel analysis and visual reasoning.
 
-Our central hypothesis—**The Modality Paradox**—reveals that agent stopping decisions are highly non-linear and modality-dependent, suggesting that stop-triggers are task-conditioned variables rather than global thresholds.
+Our central hypothesis, **The Modality Paradox**, reveals that agent stopping decisions are highly non-linear and modality-dependent, suggesting that stop-triggers are task-conditioned variables rather than global thresholds.
 
 ---
 

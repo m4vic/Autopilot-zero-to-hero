@@ -1,5 +1,5 @@
 # Autopilot: Zero to Hero
-### Build autonomous AI agent loops from zero — and confront the reason they can't satisfy themselves.
+### Build autonomous AI agent loops from zero, and confront the reason they can't satisfy themselves.
 
 > Tell a person to draw an apple and stop when they're satisfied. They draw it five or six times, feel happy, and stop.
 > Tell an AI the exact same thing. **It never stops.**
@@ -16,7 +16,7 @@ It's also an honest research story. Everything here is backed by three real publ
 
 Read it top to bottom like a short book. Each chapter builds on the one before it. Every technical chapter starts with a **plain-life analogy** first, *then* shows the machine, *then* shows the real numbers.
 
-If you only have five minutes, read **[Chapter 0: Start Here](00-start-here.md)** — it tells you the whole story in one sitting.
+If you only have five minutes, read **[Chapter 0: Start Here](00-start-here.md)**, it tells you the whole story in one sitting.
 
 | # | Chapter | What you'll learn | Time |
 |---|---------|-------------------|:----:|
@@ -27,7 +27,7 @@ If you only have five minutes, read **[Chapter 0: Start Here](00-start-here.md)*
 | **4** | [Fixing It With Teams](04-fixing-it-with-teams.md) | Why a committee of specialists beats one genius. Dual & trio agents. | 18 min |
 | **5** | [Fixing It With Math](05-fixing-it-with-math.md) | Why proof beats talk. Omega (Ω): teaching an AI to stop with a number. | 15 min |
 | **6** | [What's Next](06-whats-next.md) | The open frontier, an experiment *you* could run, and what's still unproven | 12 min |
-| — | [Glossary](glossary.md) | Every term in this book, in plain language | reference |
+|, | [Glossary](glossary.md) | Every term in this book, in plain language | reference |
 
 ---
 
@@ -35,7 +35,7 @@ If you only have five minutes, read **[Chapter 0: Start Here](00-start-here.md)*
 
 > **Autonomy is not the default state of an AI in a loop.**
 > Left alone, an AI cannot decide it is "done." Knowing *when to stop* is the hardest part of making it autonomous.
-> This book is the story of engineering that stop — from **one lonely model**, to a **committee of agents**, to a system that **grades itself with math**.
+> This book is the story of engineering that stop, from **one lonely model**, to a **committee of agents**, to a system that **grades itself with math**.
 
 ---
 
@@ -43,13 +43,13 @@ If you only have five minutes, read **[Chapter 0: Start Here](00-start-here.md)*
 
 This guide is the plain-language front door to the research of **Sanskar Jajoo / Neuralchemy Labs**. The rigorous, citable versions live alongside it:
 
-- **Paper 1 — AITL Taxonomy** ([Zenodo](https://zenodo.org/records/19551173)) → the vocabulary and the first proof
-- **Paper 2 — The Autonomous Sunk-Cost Fallacy** ([Zenodo](https://zenodo.org/records/19846960)) → the stopping problem, across 13 models
-- **Paper 3 — The Modality Paradox** ([Zenodo](https://zenodo.org/records/20364204)) → the team-based fix **and** the math-based **Cognitive Yield (Ω)** fix
+- **Paper 1, AITL Taxonomy** ([Zenodo](https://zenodo.org/records/19551173)) → the vocabulary and the first proof
+- **Paper 2, The Autonomous Sunk-Cost Fallacy** ([Zenodo](https://zenodo.org/records/19846960)) → the stopping problem, across 13 models
+- **Paper 3, The Modality Paradox** ([Zenodo](https://zenodo.org/records/20364204)) → the team-based fix **and** the math-based **Cognitive Yield (Ω)** fix
 - **The `aeos-lab` project** → where Ω is being built into a full self-running meta-orchestrator *(live frontier, not a paper)*
 
 You can also read the [formal definitions](../docs/AITL-DEFINITION.md) and run the [real experiment code](../experiments/) yourself. Each chapter points you to exactly the right file.
 
 ---
 
-*Part of the Neuralchemy Labs research series — [neuralchemy.in](https://www.neuralchemy.in/)*
+*Part of the Neuralchemy Labs research series, [neuralchemy.in](https://www.neuralchemy.in/)*

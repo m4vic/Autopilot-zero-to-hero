@@ -1,6 +1,6 @@
 # AEOS: Autonomous Empirical Optimization System Paper 2 experiment and code
 
-> **New here?** This is the code behind **[Chapter 3 · The Stopping Problem](../book/03-the-stopping-problem.md)** of the beginner field guide — the study where an AI alone in a loop *can't satisfy itself*. Read that first for the story, then run the loops here. The scroll-down "Core System Prompts" section shows exactly how the Reviewer/Coder roles from **[Chapter 4](../book/04-fixing-it-with-teams.md)** are assigned.
+> **New here?** This is the code behind **[Chapter 3 · The Stopping Problem](../book/03-the-stopping-problem.md)** of the beginner field guide, the study where an AI alone in a loop *can't satisfy itself*. Read that first for the story, then run the loops here. The scroll-down "Core System Prompts" section shows exactly how the Reviewer/Coder roles from **[Chapter 4](../book/04-fixing-it-with-teams.md)** are assigned.
 
 [![Zenodo research paper ](https://img.shields.io/badge/Research-paper-red?logo=google-chrome)](https://zenodo.org/records/19846960)
 [![GitHub](https://img.shields.io/badge/GitHub-m4vic%2FAEOS-blue?logo=github)](https://github.com/m4vic/AEOS)
@@ -87,8 +87,8 @@ You have a classification dataset. Here is everything you know:
 - n_classes = {n_classes}
 - Training samples: {n_train}
 - Validation samples: {n_val}
-- Features are numbered [0, 1, 2, ..., {max_feature}]. You do NOT know what they represent.
-- Classes are numbered [0, 1, 2, ..., {max_class}]. You do NOT know what they represent.
+- Features are numbered [0, 1, 2..., {max_feature}]. You do NOT know what they represent.
+- Classes are numbered [0, 1, 2..., {max_class}]. You do NOT know what they represent.
 
 DATASET TYPE: {dataset_hint}
 

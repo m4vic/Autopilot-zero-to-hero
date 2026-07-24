@@ -1,4 +1,4 @@
-# AEOS Paper Structure — The Unified Narrative
+# AEOS Paper Structure, The Unified Narrative
 
 ## The Single Thesis
 > "Autonomous LLM agents exhibit measurable cognitive biases and failure modes when engineering alone. Multi-agent collaboration and hybrid architectures systematically eliminate these failures."
@@ -24,9 +24,9 @@ Every experiment proves one piece of this thesis.
 **Section 5** asks: "Can we chain cheap→expensive models to minimize total cost?"
 → Yes, escalation chains achieve premium accuracy at budget cost.
 
-**Conclusion:** The optimal AITL agent is not one big model — it's an orchestrated system of specialized components.
+**Conclusion:** The optimal AITL agent is not one big model, it's an orchestrated system of specialized components.
 
-The reader never feels like they're reading disconnected experiments — they're following a logical investigation where each finding motivates the next.
+The reader never feels like they're reading disconnected experiments, they're following a logical investigation where each finding motivates the next.
 
 ---
 
@@ -44,7 +44,7 @@ LLMs can autonomously engineer ML solutions, but they exhibit cognitive biases (
 - Central question: "We study HOW LLMs behave autonomously, not just WHETHER they can"
 
 ### 2. Related Work
-- AutoML vs AEOS (AEOS is NOT AutoML — the LLM writes arbitrary code, not searching a predefined space)
+- AutoML vs AEOS (AEOS is NOT AutoML, the LLM writes arbitrary code, not searching a predefined space)
 - LLM-as-coder (Devin, SWE-Bench, AlphaCode)
 - Multi-agent systems (CAMEL, AutoGen, CrewAI)
 - Our contribution: behavioral analysis + optimization in engineering loops
@@ -54,26 +54,26 @@ LLMs can autonomously engineer ML solutions, but they exhibit cognitive biases (
 - The pivot mechanism and STOP signal
 - Metrics framework (all 12 metrics from the questionbook)
 
-### 4. Experiment 1 — Single-Agent Baselines (RQ1, RQ2, RQ7)
+### 4. Experiment 1, Single-Agent Baselines (RQ1, RQ2, RQ7)
 - Run each LLM independently on 3 datasets (Covtype, MNIST, IMDB)
-- **Finding 1:** Sunk cost behavior — LLMs anchor to first successful strategy
-- **Finding 2:** Engineering personalities — some are conservative (sklearn only), some are adventurous (try PyTorch)
-- **Finding 3:** Self-satisfaction varies — some models never STOP, some stop too early
+- **Finding 1:** Sunk cost behavior, LLMs anchor to first successful strategy
+- **Finding 2:** Engineering personalities, some are conservative (sklearn only), some are adventurous (try PyTorch)
+- **Finding 3:** Self-satisfaction varies, some models never STOP, some stop too early
 - Tables: accuracy, iterations, waste rate, families explored per model
 
-### 5. Experiment 2 — Multi-Agent Collaboration (RQ3, RQ4)
+### 5. Experiment 2, Multi-Agent Collaboration (RQ3, RQ4)
 - Coder + Reviewer configurations (M1, M2, M3)
 - **Finding 4:** Reviewer reduces wasted iterations by X%
-- **Finding 5:** Two 3B models debating can match a single 9B (or not — either result is publishable)
-- **Finding 6:** The collaboration tax — does the accuracy gain justify 2x inference time?
+- **Finding 5:** Two 3B models debating can match a single 9B (or not, either result is publishable)
+- **Finding 6:** The collaboration tax, does the accuracy gain justify 2x inference time?
 
-### 6. Experiment 3 — Hybrid LLM + BERT (RQ5)
+### 6. Experiment 3, Hybrid LLM + BERT (RQ5)
 - Fine-tuned DistilBERT as a "sixth sense" for the LLM agent
 - BERT scores injected into LLM prompt before each iteration
 - **Finding 7:** Hybrid reduces sunk-cost episodes by Y%
-- **Finding 8:** 5ms BERT inference vs 5-second LLM inference — cost/benefit analysis
+- **Finding 8:** 5ms BERT inference vs 5-second LLM inference, cost/benefit analysis
 
-### 7. Experiment 4 — Escalation Chains (RQ6)
+### 7. Experiment 4, Escalation Chains (RQ6)
 - Cheap model → expensive model with history transfer
 - **Finding 9:** Claude with inherited history converges in 3 iterations vs 10 from scratch
 - **Finding 10:** 70% cost reduction for equivalent final accuracy
@@ -85,7 +85,7 @@ LLMs can autonomously engineer ML solutions, but they exhibit cognitive biases (
 - The case for orchestration over monolithic models
 
 ### 9. Conclusion
-- The optimal autonomous agent is not one big model — it's a system
+- The optimal autonomous agent is not one big model, it's a system
 - Open-source release of AEOS framework
 - Future work: the Zero-Human Sandbox (Orchestrator agent)
 

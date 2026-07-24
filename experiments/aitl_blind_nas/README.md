@@ -1,6 +1,6 @@
 # Blind NAS Tuner
 
-> **New here?** This is the code behind **[Chapter 2 · Build Your First Loop](../../book/02-build-your-first-loop.md)** of the beginner field guide. Read that first for the plain-language walkthrough — then come back here to run it.
+> **New here?** This is the code behind **[Chapter 2 · Build Your First Loop](../../book/02-build-your-first-loop.md)** of the beginner field guide. Read that first for the plain-language walkthrough, then come back here to run it.
 
 This directory contains the Proof-of-Concept (PoC) for the Artificial Intelligence In The Loop (AITL) paper.
 
@@ -23,4 +23,4 @@ cd experiments/aitl_blind_nas
 python runner.py
 ```
 
-By default this drives the loop with OpenAI's `gpt-4o-mini` (set `OPENAI_API_KEY` first). To run a **free, fully-local** model instead, see the configuration block at the top of [`runner.py`](runner.py). Watch `results/` for the loss curve trending **downward** — that falling line is the self-improving property made visible.
+By default this drives the loop with OpenAI's `gpt-4o-mini` (set `OPENAI_API_KEY` first). To run a **free, fully-local** model instead, see the configuration block at the top of [`runner.py`](runner.py). Watch `results/` for the loss curve trending **downward**, that falling line is the self-improving property made visible.

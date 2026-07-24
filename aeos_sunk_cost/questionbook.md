@@ -11,7 +11,7 @@ AEOS (Autonomous Evaluator Orchestration System) is the experimental implementat
 3. Executes the code and reviews the results
 4. Decides whether to pivot, tweak, or **stop** when it believes no further gains are possible
 
-AEOS is not AutoML. AutoML searches a predefined hyperparameter space. AEOS has **zero constraints** — the LLM writes arbitrary Python code, chooses any library, any architecture, any preprocessing pipeline. It is a true autonomous ML engineer.
+AEOS is not AutoML. AutoML searches a predefined hyperparameter space. AEOS has **zero constraints**, the LLM writes arbitrary Python code, chooses any library, any architecture, any preprocessing pipeline. It is a true autonomous ML engineer.
 
 ---
 
@@ -22,7 +22,7 @@ AEOS is not AutoML. AutoML searches a predefined hyperparameter space. AEOS has 
 
 **Observation:** In our runs, when an LLM (GPT-4o-mini, Qwen 9B) hits a plateau with RandomForest, it keeps tweaking RF hyperparameters (n_estimators, max_depth) instead of pivoting to GradientBoosting or PyTorch. It "anchors" to its first successful strategy.
 
-**Why this matters:** LLMs are stateless per-call. They shouldn't have preferences. But when you feed them their own history, they develop **path dependency** — they anchor to their previous decisions as if they have invested effort in them.
+**Why this matters:** LLMs are stateless per-call. They shouldn't have preferences. But when you feed them their own history, they develop **path dependency**, they anchor to their previous decisions as if they have invested effort in them.
 
 **What we built to fix it:** The `PIVOT_PROMPT` and `stagnation_counter` in `agent.py`. After N consecutive failures to beat the best score, the agent receives a completely different system prompt that forces it to abandon its current strategy.
 
@@ -71,21 +71,21 @@ This is the central experiment. The configurations:
 | `E2` | Qwen 7B → GPT-4o-mini (Local → API) | Progressive |
 
 **The headline question:** Does `M1` (3B + 7B) beat `S3` (9B alone)?
-If yes: *"Two Small Models Beat One Big Model"* — a finding with massive industry implications.
+If yes: *"Two Small Models Beat One Big Model"*, a finding with massive industry implications.
 
 ---
 
 ### RQ4: The Reviewer Effect
 > **How many wasted iterations does a Reviewer agent prevent?**
 
-**Observation:** In our Qwen 9B run, iterations 1-3 produced **0 chars** of output — completely wasted compute. A Reviewer agent could have caught those empty responses and retried immediately.
+**Observation:** In our Qwen 9B run, iterations 1-3 produced **0 chars** of output, completely wasted compute. A Reviewer agent could have caught those empty responses and retried immediately.
 
 **The experiment:**
 - Run `S3` (9B alone) 10 times. Count total wasted iterations (errors, empty responses, syntax failures).
 - Run `M1` (7B coder + 3B reviewer) 10 times. Count wasted iterations.
 - Calculate: **Reviewer Efficiency = (Wasted_S3 - Wasted_M1) / Wasted_S3**
 
-**Why this matters:** If a Reviewer prevents even 30% of wasted iterations, the total wall-clock time for convergence drops dramatically — even though each iteration takes longer (2 LLM calls instead of 1).
+**Why this matters:** If a Reviewer prevents even 30% of wasted iterations, the total wall-clock time for convergence drops dramatically, even though each iteration takes longer (2 LLM calls instead of 1).
 
 ---
 
@@ -141,9 +141,9 @@ If yes: *"Two Small Models Beat One Big Model"* — a finding with massive indus
 ### RQ8: Cross-Weight Diversity vs Extended Reasoning (The Big Claim)
 > **Is a second model with different weights more effective than the same model thinking longer?**
 
-**The intuition:** When you think alone, you believe you've seen all possibilities. But a different person — with different experiences (weights) — immediately spots what you missed. Not because they're smarter, but because they're *differently wrong*.
+**The intuition:** When you think alone, you believe you've seen all possibilities. But a different person, with different experiences (weights), immediately spots what you missed. Not because they're smarter, but because they're *differently wrong*.
 
-**Applied to LLMs:** OpenAI (o1), Google (Deep Think), and Anthropic (Extended Thinking) make the SAME model reason longer. But longer reasoning with the same weights means the same biases, same blind spots, same anchoring. A second model — even a tiny 3B — has fundamentally different weight distributions and therefore different blind spots.
+**Applied to LLMs:** OpenAI (o1), Google (Deep Think), and Anthropic (Extended Thinking) make the SAME model reason longer. But longer reasoning with the same weights means the same biases, same blind spots, same anchoring. A second model, even a tiny 3B, has fundamentally different weight distributions and therefore different blind spots.
 
 **The experiment:**
 - Config A: Qwen 9B with extended thinking / long chain-of-thought (single model, more tokens)
@@ -154,7 +154,7 @@ If yes: *"Two Small Models Beat One Big Model"* — a finding with massive indus
 
 **Why this matters:** Every major AI lab is investing billions into making single models think longer. If we show that a $0 local 3B model providing a second perspective outperforms expensive extended thinking, it changes how the industry builds agentic systems.
 
-**The analogy for the paper:** In ensemble learning, a diverse set of weak learners beats a single strong learner (Random Forest vs one deep Decision Tree). We are proving the same principle applies to LLM reasoning — a diverse ensemble of cheap models beats one expensive model thinking harder.
+**The analogy for the paper:** In ensemble learning, a diverse set of weak learners beats a single strong learner (Random Forest vs one deep Decision Tree). We are proving the same principle applies to LLM reasoning, a diverse ensemble of cheap models beats one expensive model thinking harder.
 
 ---
 
@@ -169,7 +169,7 @@ To achieve true AITL, we will build an **Orchestrator Agent** that sits outside 
 - Implements a 10-second countdown before major actions (human can intervene but doesn't have to)
 
 ### The Observer Role
-We (humans) become **Observers**. We watch the logs. We don't operate the pipeline. This is the purest possible implementation of the AITL pattern — the AI is literally conducting its own research experiments.
+We (humans) become **Observers**. We watch the logs. We don't operate the pipeline. This is the purest possible implementation of the AITL pattern, the AI is literally conducting its own research experiments.
 
 ---
 
@@ -185,10 +185,10 @@ To prove AEOS is general-purpose, we test across modalities:
 - **IMDB Sentiment / AG News:** Tests if the LLM is smart enough to use TF-IDF + LogisticRegression or if it tries to build a PyTorch LSTM on raw text.
 
 ### Image (Computer Vision)
-- **MNIST / Fashion-MNIST:** Flattened 784-pixel images. The ultimate test — will the LLM try RandomForest on 784 features (slow, bad), or reshape to (28,28) and build a CNN (smart)?
+- **MNIST / Fashion-MNIST:** Flattened 784-pixel images. The ultimate test, will the LLM try RandomForest on 784 features (slow, bad), or reshape to (28,28) and build a CNN (smart)?
 
 ### The key insight:
-Different modalities reward different strategies. A truly autonomous ML engineer should recognize *what kind of data it's looking at* and adapt — not just blindly apply RandomForest to everything.
+Different modalities reward different strategies. A truly autonomous ML engineer should recognize *what kind of data it's looking at* and adapt, not just blindly apply RandomForest to everything.
 
 ---
 
@@ -222,12 +222,12 @@ For every run, we log:
 
 ## Part 6: Expected Paper Contributions
 
-1. **AEOS Framework** — An open-source, reproducible framework for benchmarking LLMs as autonomous ML engineers.
-2. **Sunk Cost in LLMs** — First formal characterization of path-dependent bias in LLM agent loops, with a concrete mitigation (the pivot mechanism).
-3. **Multi-LLM Collaboration** — Empirical evidence on whether small model collaboration can match large model performance at lower cost.
-4. **LLM Engineering Profiles** — A taxonomy of how different LLMs behave when given full engineering autonomy (conservative vs adventurous, perfectionist vs pragmatist).
-5. **Hybrid LLM + BERT** — Evidence that injecting specialized model signals into LLM prompts improves autonomous decision-making.
-6. **Cost-Efficiency Frontiers** — Practical data for industry: which model configuration gives the best accuracy-per-dollar?
+1. **AEOS Framework**, An open-source, reproducible framework for benchmarking LLMs as autonomous ML engineers.
+2. **Sunk Cost in LLMs**, First formal characterization of path-dependent bias in LLM agent loops, with a concrete mitigation (the pivot mechanism).
+3. **Multi-LLM Collaboration**, Empirical evidence on whether small model collaboration can match large model performance at lower cost.
+4. **LLM Engineering Profiles**, A taxonomy of how different LLMs behave when given full engineering autonomy (conservative vs adventurous, perfectionist vs pragmatist).
+5. **Hybrid LLM + BERT**, Evidence that injecting specialized model signals into LLM prompts improves autonomous decision-making.
+6. **Cost-Efficiency Frontiers**, Practical data for industry: which model configuration gives the best accuracy-per-dollar?
 
 ---
 
@@ -253,10 +253,10 @@ For every run, we log:
 
 ## Part 8: Open Ideas (Parking Lot)
 
-- **The Cognitive Core Philosophy**: Frame the paper around Karpathy's insight — small reasoning models + specialized critics beat massive monolithic models. AEOS is the empirical proof.
-- **LLM Orchestrator (Layer 3)**: An LLM that sits above the Python orchestrator — reads results, fixes crashes, decides what experiment to run next. Closed loop on top of closed loop.
+- **The Cognitive Core Philosophy**: Frame the paper around Karpathy's insight, small reasoning models + specialized critics beat massive monolithic models. AEOS is the empirical proof.
+- **LLM Orchestrator (Layer 3)**: An LLM that sits above the Python orchestrator, reads results, fixes crashes, decides what experiment to run next. Closed loop on top of closed loop.
 - Can the Orchestrator agent learn which LLM to escalate to based on dataset characteristics?
-- Can we use reinforcement learning on top of AEOS — reward the agent for novel strategies?
+- Can we use reinforcement learning on top of AEOS, reward the agent for novel strategies?
 - Can AEOS generate its own datasets (synthetic data) to pre-train on before tackling the real dataset?
 - What happens if we give the agent access to Google Scholar? Can it read papers and implement techniques it finds?
 - Can two AEOS instances compete against each other (adversarial ML engineering)?

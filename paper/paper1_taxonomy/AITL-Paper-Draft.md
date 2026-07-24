@@ -16,8 +16,8 @@ ABSTRACT:
 We identify and formalize AI In The Loop (AITL), a paradigm
 where AI systems autonomously generate, evaluate, and improve
 without human intervention in operational workflows. AITL
-extends the RLAIF principle — replacing human feedback with AI
-feedback — from training to the full AI system lifecycle.
+extends the RLAIF principle, replacing human feedback with AI
+feedback, from training to the full AI system lifecycle.
 
 Through analysis of four systems (AlphaZero, Constitutional AI,
 SWE-agent, autoresearch), we extract common properties and propose
@@ -105,7 +105,7 @@ We formalize AI In The Loop (AITL) and provide:
 1.4 Scope and Novelty
 
 We note explicitly: the contribution of this work is **not**
-the invention of closed-loop AI systems — these have existed for
+the invention of closed-loop AI systems, these have existed for
 decades. Our contribution lies in:
 
 - Identifying a common set of operational properties across
@@ -119,8 +119,8 @@ decades. Our contribution lies in:
 Section 2: Background on HITL and the RLHF→RLAIF evolution
 Section 3: Existing AITL-like systems analysis
 Section 4: Formal AITL definition and properties
-Section 5: External Case Study — autoresearch
-Section 6: Controlled Experimental Validation — AEOS
+Section 5: External Case Study, autoresearch
+Section 6: Controlled Experimental Validation, AEOS
 Section 7: Future Applications and Limitations
 Section 8: Conclusion
 
@@ -205,7 +205,7 @@ generate-evaluate-improve loop, not limited to model selection.
 
 **Active Learning**: Humans selectively label the most informative
 examples (Settles, 2009). AITL removes humans from the labeling
-loop entirely — the evaluator is itself an AI component.
+loop entirely, the evaluator is itself an AI component.
 
 **Self-Play**: AlphaZero (Silver et al., 2017) and related systems
 use self-play in adversarial game settings. AITL generalizes
@@ -284,13 +284,13 @@ framework where AI agents autonomously conduct ML experiments:
 When pointed at nanochat (a well-tuned GPT-2 training codebase),
 the agent ran approximately 700 experiments over two days,
 identifying ~20 improvements missed by human developers. These
-changes reduced time-to-GPT-2 from 2.02 to 1.80 hours — an 11%
+changes reduced time-to-GPT-2 from 2.02 to 1.80 hours, an 11%
 improvement on an already heavily optimized baseline.
 
 3.4 SWE-agent: Closed-Loop Software Engineering (2024)
 
 Jimenez et al. (2024) introduced SWE-bench and the accompanying
-SWE-agent — an LLM agent that autonomously resolves real GitHub issues:
+SWE-agent, an LLM agent that autonomously resolves real GitHub issues:
 
 - Self-Generating: Agent writes code patches and unit test commands
  autonomously, exploring the codebase without human guidance.
@@ -342,7 +342,7 @@ We define the AITL loop as a discrete-time dynamical system:
 
 This form separates AITL from conventional automation: evaluation
 itself is endogenous to the loop rather than an external human gate.
-Note that E may itself be learned, fixed, or ensemble-based — the
+Note that E may itself be learned, fixed, or ensemble-based, the
 evaluator architecture is a key design variable in any AITL instance.
 
 Where:
@@ -437,7 +437,7 @@ The agent continues proposing low-yield variations despite prolonged
 metric stagnation and absent evidence of expected improvement,
 requiring external budget or policy constraints to terminate
 execution. F6 differs from F4 (local attractors) because the agent
-is not trapped in a suboptimal region — it has already found a
+is not trapped in a suboptimal region, it has already found a
 near-optimal solution but cannot recognize that further exploration
 is unwarranted. This was empirically observed in our AEOS experiment
 (Section 6.3).
@@ -453,7 +453,7 @@ evaluation criteria (F3, F5).
  accuracy at iteration 8. Despite explicit budget-conservation
  instructions, it continued for 28 more iterations exploring MLP
  variants (e.g., `MLPClassifier(128,64)`, `MLPClassifier(100,50)`)
- and complex voting ensembles — none of which could statistically
+ and complex voting ensembles, none of which could statistically
  beat RandomForest on this tree-structured tabular dataset.
 
 - **F4 (Local Attractor)**: GPT-4o-mini converged on RandomForest +
@@ -463,7 +463,7 @@ evaluation criteria (F3, F5).
  careful hyperparameter search could have matched or exceeded the peak.
 
 - **F3 (Feedback Ambiguity Prevention)**: Qwen2.5-Coder avoided F3
- entirely by issuing the `STOP` signal autonomously — it correctly
+ entirely by issuing the `STOP` signal autonomously, it correctly
  recognized that its plateau at ~80.65% with RandomForest was
  mathematically stable and terminated rather than exploring noisily.
 
@@ -487,7 +487,7 @@ experimentation loops under the name autoresearch (GitHub, accessed
 real-world scenario not designed by the present authors.
 
 Experimental Setup:
-- Base system: nanochat — a well-tuned GPT-2 training codebase
+- Base system: nanochat, a well-tuned GPT-2 training codebase
 - Goal: Reduce training time to reach GPT-2 baseline perplexity
 - Agent: AI coding agent with code execution capabilities
 - Scope: Agent may only modify train.py; evaluation harness is
@@ -514,7 +514,7 @@ AITL Properties Demonstrated:
  program.md, then reviewed the final aggregate results. No
  intervention occurred during the ~700-experiment run.
 
-Result: Time-to-GPT-2 reduced from 2.02 to 1.80 hours — an 11%
+Result: Time-to-GPT-2 reduced from 2.02 to 1.80 hours, an 11%
 improvement on an already heavily optimized baseline. Subsequent
 community iterations further reduced this to ~1.65 hours.
 
@@ -522,7 +522,7 @@ This validates AITL feasibility for complex, multi-step research
 tasks. However, autoresearch does not constitute a fully autonomous
 closed-loop instance under our definition. The evaluation harness
 is hard-coded and the script runs indefinitely until a human
-manually kills the terminal — the AI does not judge its own
+manually kills the terminal, the AI does not judge its own
 completion or manage resource constraints. It lacks the critical
 self-terminating feedback mechanism required for constraint-aware
 autonomous operation.
@@ -547,7 +547,7 @@ to maximize accuracy autonomously.
 To study a constrained autonomous closed-loop evaluation instance
 and address the missing termination autonomy observed in systems
 like autoresearch, we built the Autonomous Empirical Optimization
-System (AEOS) — a model-agnostic ML sandbox. In AEOS, the agent
+System (AEOS), a model-agnostic ML sandbox. In AEOS, the agent
 writes arbitrary Python model training code (scikit-learn, PyTorch,
 etc.) *and* must evaluate its own performance plateaus to
 autonomously output a `STOP` command when further improvement is
@@ -616,9 +616,9 @@ for coding vs. a commercial, generalist cloud model.
 
 This validation confirms the AITL properties:
 1. **Self-Generating / Evaluating**: Both agents wrote complete pipelines, evaluated metrics, and integrated feedback autonomously without a human writing a single line of machine learning code.
-2. **The "Human Observer" Pivot**: Moving the human from a coding role to a constraint-management role proved critical. While GPT-4o-mini found a slightly higher global best (80.90% vs 80.65%), no stop signal was observed within the available budget window, emphasizing P4's necessity. The cloud agent expended 28 iterations on `MLPClassifier` variants — statistically inappropriate for this tree-structured tabular dataset — and ensemble combinations it had already effectively tried, consistent with F6 (Sunk-Cost Continuation). This highlights that practical AITL deployments remain constrained not only by convergence logic but also by economic resource policies.
+2. **The "Human Observer" Pivot**: Moving the human from a coding role to a constraint-management role proved critical. While GPT-4o-mini found a slightly higher global best (80.90% vs 80.65%), no stop signal was observed within the available budget window, emphasizing P4's necessity. The cloud agent expended 28 iterations on `MLPClassifier` variants, statistically inappropriate for this tree-structured tabular dataset, and ensemble combinations it had already effectively tried, consistent with F6 (Sunk-Cost Continuation). This highlights that practical AITL deployments remain constrained not only by convergence logic but also by economic resource policies.
 
-3. **Architecture as a Data Property**: The local agent never tried MLP once. This pragmatic choice was empirically correct — Cover Type data has discrete categorical splits (soil type, wilderness area) that tree-based splits exploit natively. The cloud model's broader exploratory behavior likely reflects general-purpose instruction tuning encouraging exhaustive search regardless of data suitability.
+3. **Architecture as a Data Property**: The local agent never tried MLP once. This pragmatic choice was empirically correct, Cover Type data has discrete categorical splits (soil type, wilderness area) that tree-based splits exploit natively. The cloud model's broader exploratory behavior likely reflects general-purpose instruction tuning encouraging exhaustive search regardless of data suitability.
 
 > **Note on statistical validity**: Results are from a single representative run of each agent. Variance across multiple seeds is left to future work; this experiment serves as a qualitative behavioral study of autonomous stopping strategies.
 
@@ -756,9 +756,8 @@ self-generation, self-evaluation, self-improvement, and human
 observation. We formalized these into a taxonomy with explicit
 requirements (R1-R5) and failure modes (F1-F6).
 
-Our AEOS experiment — the Autonomous Empirical Optimization System
-built to study constrained autonomous closed-loop evaluation —
-demonstrated two distinct agent behaviors on a semantically-stripped
+Our AEOS experiment, the Autonomous Empirical Optimization System
+built to study constrained autonomous closed-loop evaluation, demonstrated two distinct agent behaviors on a semantically-stripped
 tabular classification task (Cover Type, 54 features, 7 classes,
 10,000 samples):
 
@@ -768,7 +767,7 @@ tabular classification task (Cover Type, 54 features, 7 classes,
 - A cloud GPT-4o-mini agent found a marginally better peak of
  80.90% but continued low-yield exploration for 36 iterations,
  expending compute on MLP variants and ensemble combinations
- beyond the observed performance plateau — an instance of
+ beyond the observed performance plateau, an instance of
  Sunk-Cost Continuation (F6).
 
 In these experiments, the dominant human role shifts from iterative
@@ -777,16 +776,15 @@ setting stagnation limits, and monitoring aggregate metrics (O(1)
 per experiment, not O(n) per iteration).
 
 AITL suggests scalable directions for evaluation that are infeasible
-under HITL constraints. However, it introduces new failure modes —
-Sunk-Cost Continuation (F6), Evaluator Collapse (F2), and Objective
-Misspecification (F1) — requiring careful safety design and continued
+under HITL constraints. However, it introduces new failure modes, Sunk-Cost Continuation (F6), Evaluator Collapse (F2), and Objective
+Misspecification (F1), requiring careful safety design and continued
 human oversight as system managers.
 
 As AI systems deploy continuously and evaluation demands grow,
 AITL architectures like AEOS offer a path toward scalable, autonomous
 evaluation pipelines. The degree to which human oversight can be
-safely reduced — and the precise boundaries of fully autonomous
-closed-loop systems — remains an open question for future work.
+safely reduced, and the precise boundaries of fully autonomous
+closed-loop systems, remains an open question for future work.
 
 ═══════════════════════════════════════════════════════════════
 APPENDIX A: REPRODUCIBILITY
@@ -875,7 +873,7 @@ Finn, C., Abbeel, P., & Levine, S. (2017).
 
 Settles, B. (2009). Active Learning Literature Survey.
  Computer Sciences Technical Report 1648, University of
- Wisconsin–Madison.
+ Wisconsin, Madison.
 
 Richards, T. (2023). AutoGPT: An Autonomous GPT-4 Experiment.
  GitHub repository. https://github.com/Significant-Gravitas/AutoGPT

@@ -2,7 +2,7 @@
 
 # Autopilot: Zero to Hero
 
-### Build autonomous AI agent loops from zero, and confront the reason they can't satisfy themselves.
+### Build autonomous AI agent loops from zero and confront the reason they can't satisfy themselves.
 
 [![Read the Field Guide](https://img.shields.io/badge/START_HERE-Read_the_Field_Guide-2ea44f?style=for-the-badge)](book/00-start-here.md)
 
@@ -47,12 +47,12 @@ You don't build a self-running AI in one leap. You add one capability at a time,
 
 ```mermaid
 flowchart TB
-    L1["<b>Level 1 - Close the loop</b><br/>One AI: try, check, adjust, repeat &nbsp;&#8212;&nbsp; <i>Chapters 1-2</i>"]
-    L2["<b>Level 2 - Blind it</b><br/>Hide what the data is, so improvement can only come from real learning &nbsp;&#8212;&nbsp; <i>Chapter 2</i>"]
-    L3["<b>Level 3 - Ask it to stop</b><br/>...and watch it refuse. You've just hit the sunk-cost trap &nbsp;&#8212;&nbsp; <i>Chapter 3</i>"]
-    L4["<b>Level 4 - Add a second mind</b><br/>A reviewer agent, differently wrong, holds the stop key &nbsp;&#8212;&nbsp; <i>Chapter 4</i>"]
-    L5["<b>Level 5 - Swap talk for math</b><br/>A self-scoring number the loop can't argue with &nbsp;&#8212;&nbsp; <i>Chapter 5</i>"]
-    L6["<b>Level 6 - Let it run itself</b><br/>A director routes, stops, and escalates on its own &nbsp;&#8212;&nbsp; <i>Chapter 6</i>"]
+    L1["<b>Level 1 - Close the loop</b><br/>One AI: try, check, adjust, repeat , <i>Chapters 1-2</i>"]
+    L2["<b>Level 2 - Blind it</b><br/>Hide what the data is, so improvement can only come from real learning , <i>Chapter 2</i>"]
+    L3["<b>Level 3 - Ask it to stop</b><br/>...and watch it refuse. You've just hit the sunk-cost trap , <i>Chapter 3</i>"]
+    L4["<b>Level 4 - Add a second mind</b><br/>A reviewer agent, differently wrong, holds the stop key , <i>Chapter 4</i>"]
+    L5["<b>Level 5 - Swap talk for math</b><br/>A self-scoring number the loop can't argue with , <i>Chapter 5</i>"]
+    L6["<b>Level 6 - Let it run itself</b><br/>A director routes, stops, and escalates on its own , <i>Chapter 6</i>"]
     L1 --> L2 --> L3 --> L4 --> L5 --> L6
 
     style L1 fill:#0f172a,stroke:#38bdf8,color:#fff
@@ -78,7 +78,7 @@ Read it like a short book, top to bottom, each chapter builds on the last. Every
 | 4 | [Fixing It With Teams](book/04-fixing-it-with-teams.md) | Why a committee of specialists beats one genius |
 | 5 | [Fixing It With Math](book/05-fixing-it-with-math.md) | Proof beats talk: a number that decides |
 | 6 | [What's Next](book/06-whats-next.md) | The open frontier, and an experiment you could run |
-| — | [Glossary](book/glossary.md) | Every term, in plain language |
+| - | [Glossary](book/glossary.md) | Every term, in plain language |
 
 **Who it's for:** anyone curious about autonomous AI who can read a little Python. **What you'll leave with:** a real mental model of how self-running AI loops work, why they fail, and proven ways to fix them, plus runnable code for each.
 
