@@ -7,7 +7,7 @@
 [![Paper 1: AITL Taxonomy](https://img.shields.io/badge/Paper_1-AITL_Taxonomy-red?logo=read-the-docs&logoColor=white)](https://zenodo.org/records/21535728)
 [![Paper 2: Sunk-Cost Fallacy](https://img.shields.io/badge/Paper_2-Sunk_Cost_Fallacy-green?logo=read-the-docs&logoColor=white)](https://zenodo.org/records/21535645)
 [![Paper 3: Modality Paradox](https://img.shields.io/badge/Paper_3-Modality_Paradox-blue?logo=read-the-docs&logoColor=white)](https://zenodo.org/records/21534310)
-[![artifact: Page](https://img.shields.io/badge/artifact?logo=read-the-docs&logoColor=white)](https://claude.ai/code/artifact/4413a456-27c6-4791-9a14-199675072d76)
+[![artifact: Page](https://img.shields.io/badge/artifact-yellow?logo=read-the-docs&logoColor=white)](https://claude.ai/code/artifact/4413a456-27c6-4791-9a14-199675072d76)
 
 </div>
 
