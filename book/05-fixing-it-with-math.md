@@ -36,12 +36,12 @@ That number is called **Omega**, written **Ω** — and in the published researc
 Omega looks back at the AI's **last few valid attempts** (5 of them, by default — a small recent window) and asks three simple questions about them. Each becomes a number.
 
 ```mermaid
-flowchart TB
-    W["📊 Look at the last 5 valid attempts"] --> Q1
-    Q1["1️⃣ QUALITY<br/>How good are my results<br/>right now?"] --> OMEGA
-    Q2["2️⃣ PROGRESS<br/>Am I still getting better,<br/>or have I gone flat?"] --> OMEGA
-    Q3["3️⃣ WASTE<br/>How many attempts are<br/>just crashing?"] --> OMEGA
-    OMEGA["🧮 Ω = one number<br/>combining all three"]
+    flowchart TB
+    W["Look at the last 5 valid attempts"] --> Q1
+    Q1["1⃣ QUALITY<br/>How good are my results<br/>right now?"] --> OMEGA
+    Q2["2⃣ PROGRESS<br/>Am I still getting better,<br/>or have I gone flat?"] --> OMEGA
+    Q3["3⃣ WASTE<br/>How many attempts are<br/>just crashing?"] --> OMEGA
+    OMEGA["Ω = one number<br/>combining all three"]
 
     style Q1 fill:#1e3a8a,stroke:#3b82f6,color:#fff
     style Q2 fill:#064e3b,stroke:#10b981,color:#fff
@@ -51,9 +51,9 @@ flowchart TB
 
 | # | Question | Plain meaning | Name in the formula |
 |---|----------|---------------|:---:|
-| 1️⃣ | **Quality** | Average accuracy of my recent good runs | `Q_valid` |
-| 2️⃣ | **Progress** | How much my recent best beats my previous best | `P_gain` |
-| 3️⃣ | **Waste** | What fraction of my recent attempts crashed | `R_waste` |
+| 1⃣ | **Quality** | Average accuracy of my recent good runs | `Q_valid` |
+| 2⃣ | **Progress** | How much my recent best beats my previous best | `P_gain` |
+| 3⃣ | **Waste** | What fraction of my recent attempts crashed | `R_waste` |
 
 Then it blends them into a single score. Here's the actual formula — don't be scared, it's just "add up the good, subtract the bad":
 
@@ -71,14 +71,14 @@ Quality matters, but less. And waste (crashes) is a mild penalty — a few error
 This is the part that takes the choice *away* from the AI's biased judgment. Once Omega is computed, a fixed rule maps it to **one of four actions** — no discussion, no "but maybe one more try":
 
 ```mermaid
-flowchart TB
-    START["🧮 Compute Ω from the last 5 attempts"] --> WASTE{"Are >40% of<br/>attempts crashing?"}
-    WASTE -->|"Yes"| ESC["🚨 ESCALATE<br/>Something's broken.<br/>Get help / stronger model."]
+    flowchart TB
+    START["Compute Ω from the last 5 attempts"] --> WASTE{"Are >40% of<br/>attempts crashing?"}
+    WASTE -->|"Yes"| ESC["ESCALATE<br/>Something's broken.<br/>Get help / stronger model."]
     WASTE -->|"No"| PROG{"Still making<br/>real progress?"}
-    PROG -->|"Yes"| CONT["▶️ CONTINUE<br/>It's working. Keep going."]
+    PROG -->|"Yes"| CONT["▶ CONTINUE<br/>It's working. Keep going."]
     PROG -->|"No"| QUAL{"Is the quality<br/>already good enough?"}
-    QUAL -->|"Yes"| STOP["✋ STOP<br/>You've found your ceiling.<br/>Quit — you've won."]
-    QUAL -->|"No"| PIV["🔀 PIVOT<br/>Dead end. Abandon this<br/>approach, try something new."]
+    QUAL -->|"Yes"| STOP["STOP<br/>You've found your ceiling.<br/>Quit — you've won."]
+    QUAL -->|"No"| PIV["PIVOT<br/>Dead end. Abandon this<br/>approach, try something new."]
 
     style ESC fill:#7f1d1d,stroke:#b91c1c,color:#fff
     style CONT fill:#064e3b,stroke:#10b981,color:#fff
@@ -86,10 +86,10 @@ flowchart TB
     style PIV fill:#7c2d12,stroke:#ea580c,color:#fff
 ```
 
-- **▶️ CONTINUE** — still improving, so keep going.
-- **✋ STOP** — not improving *and* quality is already good → you've hit your ceiling, put the pencil down. **This is the apple-drawer finally stopping** — but triggered by a number, not a feeling.
-- **🔀 PIVOT** — not improving *and* quality is poor → this whole approach is a dead end; throw it out and try something genuinely different.
-- **🚨 ESCALATE** — too many crashes → something's structurally broken; don't just retry, get help (a human, or a more powerful model).
+- **▶ CONTINUE** — still improving, so keep going.
+- ** STOP** — not improving *and* quality is already good → you've hit your ceiling, put the pencil down. **This is the apple-drawer finally stopping** — but triggered by a number, not a feeling.
+- ** PIVOT** — not improving *and* quality is poor → this whole approach is a dead end; throw it out and try something genuinely different.
+- ** ESCALATE** — too many crashes → something's structurally broken; don't just retry, get help (a human, or a more powerful model).
 
 The beauty is that STOP is no longer a *feeling* the AI has to be brave enough to admit. It's the output of a rule. The AI computes 0.258, the rule says STOP, and it stops. It literally cannot rationalize its way past a number the way it could rationalize past the sentence *"stop if you're not improving."*
 

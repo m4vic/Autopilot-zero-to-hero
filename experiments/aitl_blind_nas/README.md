@@ -1,8 +1,8 @@
 # Blind NAS Tuner
 
-> 📖 **New here?** This is the code behind **[Chapter 2 · Build Your First Loop](../../book/02-build-your-first-loop.md)** of the beginner field guide. Read that first for the plain-language walkthrough — then come back here to run it.
+> **New here?** This is the code behind **[Chapter 2 · Build Your First Loop](../../book/02-build-your-first-loop.md)** of the beginner field guide. Read that first for the plain-language walkthrough — then come back here to run it.
 
-This directory contains the Proof-of-Concept (PoC) for the Artificial Intelligence In The Loop (AITL) paper. 
+This directory contains the Proof-of-Concept (PoC) for the Artificial Intelligence In The Loop (AITL) paper.
 
 **Goal**: Prove the AITL self-improving property mathematically by forcing an LLM to optimize a neural network via empirical feedback loops, negating its ability to guess the answer via pre-training bias.
 
@@ -10,11 +10,11 @@ Please read [`concept.md`](concept.md) first to understand the methodology and n
 
 ## Structure
 
-*   `concept.md`: Detailed explanation of the blinding methodology.
-*   `agent.py`: The LLM agent logic that generates PyTorch configurations (the 🎨 Self-Generating part).
-*   `trainer.py`: The local runner that builds, trains, and evaluates the generated PyTorch models (the 📏 Self-Evaluating part).
-*   `data_loader.py`: Loads the obscured ("blinded") dataset.
-*   `runner.py`: The orchestrator linking the agent and the trainer, and spinning the loop.
+* `concept.md`: Detailed explanation of the blinding methodology.
+* `agent.py`: The LLM agent logic that generates PyTorch configurations (the Self-Generating part).
+* `trainer.py`: The local runner that builds, trains, and evaluates the generated PyTorch models (the Self-Evaluating part).
+* `data_loader.py`: Loads the obscured ("blinded") dataset.
+* `runner.py`: The orchestrator linking the agent and the trainer, and spinning the loop.
 
 ## Run it
 

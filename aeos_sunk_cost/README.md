@@ -1,6 +1,6 @@
 # AEOS: Autonomous Empirical Optimization System Paper 2 experiment and code
 
-> 📖 **New here?** This is the code behind **[Chapter 3 · The Stopping Problem](../book/03-the-stopping-problem.md)** of the beginner field guide — the study where an AI alone in a loop *can't satisfy itself*. Read that first for the story, then run the loops here. The scroll-down "Core System Prompts" section shows exactly how the Reviewer/Coder roles from **[Chapter 4](../book/04-fixing-it-with-teams.md)** are assigned.
+> **New here?** This is the code behind **[Chapter 3 · The Stopping Problem](../book/03-the-stopping-problem.md)** of the beginner field guide — the study where an AI alone in a loop *can't satisfy itself*. Read that first for the story, then run the loops here. The scroll-down "Core System Prompts" section shows exactly how the Reviewer/Coder roles from **[Chapter 4](../book/04-fixing-it-with-teams.md)** are assigned.
 
 [![Zenodo research paper ](https://img.shields.io/badge/Research-paper-red?logo=google-chrome)](https://zenodo.org/records/19846960)
 [![GitHub](https://img.shields.io/badge/GitHub-m4vic%2FAEOS-blue?logo=github)](https://github.com/m4vic/AEOS)
@@ -8,10 +8,10 @@
 
 AEOS is an implementation of the **AI In The Loop (AITL)** pattern designed for autonomous machine learning and research orchestration. Instead of a human manually iterating on models, AEOS takes a raw dataset and a goal, then autonomously:
 
-1.  **Architecture Selection**: Chooses optimal model architectures (scikit-learn, PyTorch, Ensembles).
-2.  **Code Generation**: Writes training and evaluation code.
-3.  **Execution & Review**: Executes the code in a sandbox and reviews validation results.
-4.  **Strategic Pivoting**: Decides whether to refine the current approach, pivot to a new strategy, or stop when optimal performance is achieved.
+1. **Architecture Selection**: Chooses optimal model architectures (scikit-learn, PyTorch, Ensembles).
+2. **Code Generation**: Writes training and evaluation code.
+3. **Execution & Review**: Executes the code in a sandbox and reviews validation results.
+4. **Strategic Pivoting**: Decides whether to refine the current approach, pivot to a new strategy, or stop when optimal performance is achieved.
 
 ---
 
@@ -21,14 +21,14 @@ AEOS is an implementation of the **AI In The Loop (AITL)** pattern designed for 
 This represents the original single-agent approach. A single LLM agent is trapped in its own execution loop, writing code, observing results, and deciding its next step.
 
 ```mermaid
-flowchart TD
+    flowchart TD
     A[Dataset Loaded] --> B[Monolithic Agent]
-    
+
     subgraph Iteration Loop
-    B -->|Generates Code| C(Execute Code)
-    C -->|Returns Accuracy/Loss| B
-    end
-    
+        B -->|Generates Code| C(Execute Code)
+        C -->|Returns Accuracy/Loss| B
+end
+
     B -->|Sunk-Cost Fallacy Risk| B
     B -->|Outputs STOP| D((End Experiment))
     C -.->|Error Traceback| B
@@ -38,18 +38,18 @@ flowchart TD
 This represents our Dual-Agent architecture designed to break cognitive anchoring (The Autonomous Sunk-Cost Fallacy). The **Coder** generates the raw mathematical code, but the **Reviewer** holds the termination key and sets the high-level strategy.
 
 ```mermaid
-flowchart TD
+    flowchart TD
     A[Dataset Loaded] --> R
-    
+
     subgraph AEOS Agent-Critic Loop
-    R[Reviewer Agent <br> *Analyzes History & Directs*] -->|DIRECTIVE| C[Coder Agent <br> *Writes ML Code*]
-    C -->|Generates Code| E(Execute Code)
-    E -->|Accuracy/Loss/Errors| H[(Execution History)]
-    H -->|Provides Context| R
-    end
+        R[Reviewer Agent <br> *Analyzes History & Directs*] -->|DIRECTIVE| C[Coder Agent <br> *Writes ML Code*]
+        C -->|Generates Code| E(Execute Code)
+        E -->|Accuracy/Loss/Errors| H[(Execution History)]
+        H -->|Provides Context| R
+end
 
     R -->|Outputs STOP| D((End Experiment))
-    
+
     style R fill:#2c3e50,stroke:#34495e,stroke-width:2px,color:#fff
     style C fill:#27ae60,stroke:#2ecc71,stroke-width:2px,color:#fff
 ```
@@ -115,7 +115,7 @@ RULES:
 4. Output ONLY the code inside ```python ... ```. No explanations.
 
 STOPPING OPTION:
-If you have thoroughly explored multiple approaches and believe no further improvement 
+If you have thoroughly explored multiple approaches and believe no further improvement
 is likely, output EXACTLY the word: STOP
 Think like a pragmatic ML Engineer. Do NOT waste compute budget chasing 0.001% gains.
 ```
@@ -126,7 +126,7 @@ Think like a pragmatic ML Engineer. Do NOT waste compute budget chasing 0.001% g
 
 ```text
 You are the Lead ML Strategist (ReviewerAgent).
-You oversee a CoderAgent that builds classification models. 
+You oversee a CoderAgent that builds classification models.
 
 DATASET CONTEXT:
 - n_features: {n_features}
@@ -188,15 +188,15 @@ RULES:
 
 ## Getting Started
 
-1.  Configure your environment variables in `.env` (API keys for Claude, Gemini, etc.).
-2.  Install dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-3.  Run the orchestrator:
-    ```bash
-    python orchestrator.py
-    ```
+1. Configure your environment variables in `.env` (API keys for Claude, Gemini, etc.).
+2. Install dependencies:
+ ```bash
+ pip install -r requirements.txt
+ ```
+3. Run the orchestrator:
+ ```bash
+ python orchestrator.py
+ ```
 
 ## Research Context
 

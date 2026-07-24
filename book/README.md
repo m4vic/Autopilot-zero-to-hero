@@ -43,10 +43,10 @@ If you only have five minutes, read **[Chapter 0: Start Here](00-start-here.md)*
 
 This guide is the plain-language front door to the research of **Sanskar Jajoo / Neuralchemy Labs**. The rigorous, citable versions live alongside it:
 
-- 📄 **Paper 1 — AITL Taxonomy** ([Zenodo](https://zenodo.org/records/19551173)) → the vocabulary and the first proof
-- 📄 **Paper 2 — The Autonomous Sunk-Cost Fallacy** ([Zenodo](https://zenodo.org/records/19846960)) → the stopping problem, across 13 models
-- 📄 **Paper 3 — The Modality Paradox** ([Zenodo](https://zenodo.org/records/20364204)) → the team-based fix **and** the math-based **Cognitive Yield (Ω)** fix
-- 🧪 **The `aeos-lab` project** → where Ω is being built into a full self-running meta-orchestrator *(live frontier, not a paper)*
+- **Paper 1 — AITL Taxonomy** ([Zenodo](https://zenodo.org/records/19551173)) → the vocabulary and the first proof
+- **Paper 2 — The Autonomous Sunk-Cost Fallacy** ([Zenodo](https://zenodo.org/records/19846960)) → the stopping problem, across 13 models
+- **Paper 3 — The Modality Paradox** ([Zenodo](https://zenodo.org/records/20364204)) → the team-based fix **and** the math-based **Cognitive Yield (Ω)** fix
+- **The `aeos-lab` project** → where Ω is being built into a full self-running meta-orchestrator *(live frontier, not a paper)*
 
 You can also read the [formal definitions](../docs/AITL-DEFINITION.md) and run the [real experiment code](../experiments/) yourself. Each chapter points you to exactly the right file.
 

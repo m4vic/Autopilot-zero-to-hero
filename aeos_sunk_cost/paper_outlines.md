@@ -2,7 +2,7 @@
 
 ## Paper 1: The AI Behavioral Economics Paper (Single-Agent Autonomy)
 **Core Theme:** "What happens when we leave AI alone in a loop? How does it fail?"
-**Status:** ✅ Complete. Data collection finalized, FINDINGS.md peer-reviewed, paper1_draft.md arXiv-ready.
+**Status:** Complete. Data collection finalized, FINDINGS.md peer-reviewed, paper1_draft.md arXiv-ready.
 
 ### Research Questions (The Question Book)
 1. **The Intelligence Threshold:** Does code-specific fine-tuning allow smaller models (e.g., Qwen-Coder 1.5b) to bypass the cognitive failures of larger general models (e.g., Qwen 9b) when dealing with complex data pipelines?

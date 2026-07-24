@@ -26,16 +26,16 @@ That phrase — *differently wrong* — is the entire fix in three words. Two mi
 
 So instead of one AI doing everything, the loop is split into **two different AIs with two different jobs**:
 
-- **The Coder** 🛠️ — writes the machine-learning code. Its whole world is "build the thing the boss asked for." It does **no** big-picture thinking about whether to stop.
-- **The Reviewer** 🧭 — never writes a line of code. It watches the Coder's whole history, sets the strategy (*"stop tweaking trees, try a neural network"*), and — crucially — **holds the STOP key.** Only the Reviewer can end the loop.
+- **The Coder** — writes the machine-learning code. Its whole world is "build the thing the boss asked for." It does **no** big-picture thinking about whether to stop.
+- **The Reviewer** — never writes a line of code. It watches the Coder's whole history, sets the strategy (*"stop tweaking trees, try a neural network"*), and — crucially — **holds the STOP key.** Only the Reviewer can end the loop.
 
 ```mermaid
-flowchart TB
-    R["🧭 Reviewer<br/>reads the full history · sets strategy · <b>holds the STOP key</b>"] -->|"DIRECTIVE:<br/>'try a neural net'"| C["🛠️ Coder<br/>writes the ML code"]
-    C -->|"code"| E["⚙️ Sandbox<br/>runs it, measures accuracy"]
-    E -->|"score + any errors"| H[("📓 History")]
+    flowchart TB
+    R["Reviewer<br/>reads the full history · sets strategy · <b>holds the STOP key</b>"] -->|"DIRECTIVE:<br/>'try a neural net'"| C["Coder<br/>writes the ML code"]
+    C -->|"code"| E["Sandbox<br/>runs it, measures accuracy"]
+    E -->|"score + any errors"| H[("History")]
     H -->|"the whole story so far"| R
-    R -->|"DIRECTIVE: STOP"| D((✋ Done))
+    R -->|"DIRECTIVE: STOP"| D((Done))
 
     style R fill:#1e3a8a,stroke:#3b82f6,color:#fff
     style C fill:#064e3b,stroke:#10b981,color:#fff
@@ -58,8 +58,8 @@ Recall the lonely models from Chapter 3. The best *single* agent on this task (`
 
 | Setup | Accuracy | Time | Sunk-cost episodes |
 |---|:---:|:---:|:---:|
-| 🔴 **Best lonely model** (`llama3.1:8b`) | 94.92% | **3,432 sec** | **8.7** (badly stuck) |
-| 🟢 **Best two-agent team** (`qwen-coder:14b` + `deepseek-coder:16b`) | 93.73% | **330 sec** | **0.0** (never stuck) |
+| **Best lonely model** (`llama3.1:8b`) | 94.92% | **3,432 sec** | **8.7** (badly stuck) |
+| **Best two-agent team** (`qwen-coder:14b` + `deepseek-coder:16b`) | 93.73% | **330 sec** | **0.0** (never stuck) |
 
 Read the trade. The team scored a *whisker* lower on raw accuracy — **98.7% of the lonely model's score** — but it got there in **about a tenth of the time** (330 seconds vs 3,432), and it **never once fell into a sunk-cost episode.** The headline, in the researcher's words:
 
@@ -82,10 +82,10 @@ But then the same model was put in charge of an **image** task. And it became th
 How can one trait be both the worst and the best? The researchers call this the **Modality Paradox** ("modality" just means *the kind of data* — tables vs. images vs. text):
 
 ```mermaid
-flowchart LR
+    flowchart LR
     Q["qwen3.5:9b<br/>a very stubborn reviewer"]
-    Q -->|"on TABLE data<br/>(a simple, smooth problem)"| BAD["❌ CATASTROPHE<br/>stubbornness = won't stop<br/>75 rounds, 20 SCEs"]
-    Q -->|"on IMAGE data<br/>(a rugged, tricky problem)"| GOOD["✅ BEST IN CLASS<br/>stubbornness = pushes past<br/>false dead-ends → ~99%"]
+    Q -->|"on TABLE data<br/>(a simple, smooth problem)"| BAD["CATASTROPHE<br/>stubbornness = won't stop<br/>75 rounds, 20 SCEs"]
+    Q -->|"on IMAGE data<br/>(a rugged, tricky problem)"| GOOD["BEST IN CLASS<br/>stubbornness = pushes past<br/>false dead-ends → ~99%"]
 
     style Q fill:#1e3a8a,stroke:#3b82f6,color:#fff
     style BAD fill:#7f1d1d,stroke:#b91c1c,color:#fff
@@ -119,7 +119,7 @@ The two-agent loop is real code you can drive. The runnable versions live in [`a
 
 ```bash
 cd aeos_sunk_cost
-python runner_critic.py     # the Reviewer + Coder team
+python runner_critic.py # the Reviewer + Coder team
 ```
 
 The exact prompts that turn one model into a "Reviewer" and another into a "Coder" are printed in full in the [AEOS README](../aeos_sunk_cost/README.md) — worth a look to see how little it takes to assign these roles. The full Paper 3 experiment design (including the three-agent Reviewer-Coder-Judge variant and the cross-modality sweeps) is documented in [`experiments/modality_paradox/`](../experiments/modality_paradox/).

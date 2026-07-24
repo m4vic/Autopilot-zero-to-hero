@@ -28,26 +28,26 @@ The very first version of this experiment ran the *same loop* with two different
 
 Both were given the identical blindfolded dataset (54 features, 7 classes) and told to find the best model they could, then stop.
 
-**🟢 Agent A — a small, local code model** (`Qwen2.5-Coder-7B`, running free on a laptop):
+** Agent A — a small, local code model** (`Qwen2.5-Coder-7B`, running free on a laptop):
 - On its **first try**, it reasoned that this looked like structured table data and picked a solid, sensible model (a Random Forest). Scored **80.65%**.
 - It tried a few variations, saw they weren't helping, and concluded it had found the ceiling.
 - After **9 rounds**, it did the remarkable thing: **it output `STOP`.** On its own.
 - **Cost: $0.**
 
-**🔴 Agent B — a bigger, commercial cloud model** (`GPT-4o-mini`):
+** Agent B — a bigger, commercial cloud model** (`GPT-4o-mini`):
 - It explored more widely and found a *slightly better* peak: **80.90%** at round 8. Genuinely a hair better than Agent A.
 - And then... it kept going. And going. It spent **28 more rounds** trying fancier and fancier things — neural networks, voting ensembles — none of which could beat what it already had.
 - It **never** said `STOP`. It was finally **switched off from the outside at round 36** because the money ran out.
 - **Cost: ~$1**, almost all of it spent *after* it had already found its best answer.
 
 ```mermaid
-flowchart TB
-    subgraph A["🟢 Agent A · small local code model"]
-        A1["Round 1: picks a sensible model → 80.65%"] --> A2["Rounds 2–9: checks a few variants"] --> A3["'No more gains here.' → outputs STOP ✋"] --> A4["Done in 9 rounds · $0"]
-    end
-    subgraph B["🔴 Agent B · bigger cloud model"]
+    flowchart TB
+    subgraph A["Agent A · small local code model"]
+        A1["Round 1: picks a sensible model → 80.65%"] --> A2["Rounds 2–9: checks a few variants"] --> A3["'No more gains here.' → outputs STOP "] --> A4["Done in 9 rounds · $0"]
+end
+    subgraph B["Agent B · bigger cloud model"]
         B1["Round 8: finds peak → 80.90%"] --> B2["Rounds 9–36: fancier models,<br/>no improvement"] --> B3["Never says STOP"] --> B4["Killed from outside at round 36 · ~$1 wasted"]
-    end
+end
 
     style A fill:#064e3b,stroke:#10b981,color:#fff
     style B fill:#7f1d1d,stroke:#b91c1c,color:#fff

@@ -22,11 +22,11 @@ That's exactly the shape of the software loop we're about to build. Swap "Chef" 
 Every AITL loop, no matter how fancy, is built from four parts. Here they are as the four Python files in our proof-of-concept, which lives in [`experiments/aitl_blind_nas/`](../experiments/aitl_blind_nas/):
 
 ```mermaid
-flowchart LR
-    A["🧠 The Agent<br/><code>agent.py</code><br/>writes a design"] -->|"a model design"| B["🏋️ The Trainer<br/><code>trainer.py</code><br/>builds it, trains it, scores it"]
-    B -->|"accuracy + loss"| C["📓 The Logger<br/>records the score"]
+    flowchart LR
+    A["The Agent<br/><code>agent.py</code><br/>writes a design"] -->|"a model design"| B["The Trainer<br/><code>trainer.py</code><br/>builds it, trains it, scores it"]
+    B -->|"accuracy + loss"| C["The Logger<br/>records the score"]
     C -->|"here's how you did"| A
-    D["🔁 The Runner<br/><code>runner.py</code><br/>spins the loop N times"] -.->|"orchestrates everyone"| A
+    D["The Runner<br/><code>runner.py</code><br/>spins the loop N times"] -.->|"orchestrates everyone"| A
 
     style A fill:#7c2d12,stroke:#ea580c,color:#fff
     style B fill:#1e3a8a,stroke:#3b82f6,color:#fff
@@ -36,10 +36,10 @@ flowchart LR
 
 | Part | File | Its one job | Which "hat" from Ch 1 |
 |------|------|-------------|------------------------|
-| **The Agent** | `agent.py` | An AI that invents a machine-learning model design (in code) | 🎨 Self-Generating |
-| **The Trainer** | `trainer.py` | A sandbox that *runs* that code, trains the model, and measures accuracy | 📏 Self-Evaluating |
+| **The Agent** | `agent.py` | An AI that invents a machine-learning model design (in code) | Self-Generating |
+| **The Trainer** | `trainer.py` | A sandbox that *runs* that code, trains the model, and measures accuracy | Self-Evaluating |
 | **The Logger** | inside `runner.py` | Writes down every attempt and its score | (the memory) |
-| **The Runner** | `runner.py` | Repeats the cycle, feeding each score back to the Agent | 🔧 Self-Improving |
+| **The Runner** | `runner.py` | Repeats the cycle, feeding each score back to the Agent | Self-Improving |
 
 That's it. **Generator, evaluator, memory, orchestrator.** Master these four boxes and you understand every autonomous loop in this book — the later chapters just add *more* agents or a *smarter* stop rule.
 
@@ -72,13 +72,13 @@ The researchers took a real dataset and stripped every clue from it. No name. No
 That's it. It has no idea if it's looking at handwriting, medical scans, or forest sensor readings. Its memory is now useless. This is called **blinding** (the folder name, *Blind NAS*, means "Blind Neural Architecture Search" — searching for a network design, blindfolded).
 
 ```mermaid
-flowchart TB
-    subgraph Cheating["❌ Without blinding"]
+    flowchart TB
+    subgraph Cheating["Without blinding"]
         C1["'Design a net for MNIST'"] --> C2["AI recalls the famous answer<br/>from memory — instantly"] --> C3["Proves nothing about the loop"]
-    end
-    subgraph Honest["✅ With blinding"]
+end
+    subgraph Honest["With blinding"]
         B1["'54 features, 7 classes.<br/>That's all you get.'"] --> B2["Memory is useless.<br/>AI must actually experiment"] --> B3["If the score climbs,<br/>the LOOP did it"]
-    end
+end
 
     style Cheating fill:#7f1d1d,stroke:#b91c1c,color:#fff
     style Honest fill:#064e3b,stroke:#10b981,color:#fff

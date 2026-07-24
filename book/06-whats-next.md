@@ -11,10 +11,10 @@
 Four chapters ago, we had a single AI that couldn't put the pencil down. Now we have three real ways to make an autonomous loop *know when to stop*:
 
 ```mermaid
-flowchart LR
-    A["🤖 One model<br/>(Ch 3)"] -->|"can't stop"| B["👥 A team<br/>(Ch 4)"]
-    B -->|"stops via talk"| C["🧮 Omega<br/>(Ch 5)"]
-    C -->|"stops via a number"| D["🚀 The frontier<br/>(you are here)"]
+    flowchart LR
+    A["One model<br/>(Ch 3)"] -->|"can't stop"| B["A team<br/>(Ch 4)"]
+    B -->|"stops via talk"| C["Omega<br/>(Ch 5)"]
+    C -->|"stops via a number"| D["The frontier<br/>(you are here)"]
 
     style A fill:#7f1d1d,stroke:#b91c1c,color:#fff
     style B fill:#1e3a8a,stroke:#1d4ed8,color:#fff
@@ -65,15 +65,15 @@ Here's the best part of an honest open question: it comes with a recipe. And the
 If you want to actually push this field forward, here's the protocol — designed so the result *means something*:
 
 ```mermaid
-flowchart TB
+    flowchart TB
     subgraph SETUP["Hold the total compute budget EQUAL for both sides"]
         direction LR
-        A["🧠 CONFIG A · Depth<br/>One strong model,<br/>thinking hard / many rounds"]
-        B["👥 CONFIG B · Diversity<br/>Three different ~30B specialists,<br/>as a team (same total budget)"]
-    end
+        A["CONFIG A · Depth<br/>One strong model,<br/>thinking hard / many rounds"]
+        B["CONFIG B · Diversity<br/>Three different ~30B specialists,<br/>as a team (same total budget)"]
+end
     SETUP --> R{"Which wins at<br/>equal cost?"}
-    R -->|"B wins"| W1["✅ Diversity beats depth<br/>— proven at scale. Big result."]
-    R -->|"A wins"| W2["✅ Depth wins<br/>— also a real, publishable finding."]
+    R -->|"B wins"| W1["Diversity beats depth<br/>— proven at scale. Big result."]
+    R -->|"A wins"| W2["Depth wins<br/>— also a real, publishable finding."]
 
     style A fill:#1e3a8a,stroke:#3b82f6,color:#fff
     style B fill:#064e3b,stroke:#10b981,color:#fff
@@ -115,10 +115,10 @@ That's the whole journey, from zero to the frontier. The pencil is in your hand 
 
 ## Keep going
 
-- 🧠 **Read the real papers** — the rigorous versions of everything here:
-  [Paper 1 · Taxonomy](https://zenodo.org/records/19551173) · [Paper 2 · Sunk-Cost](https://zenodo.org/records/19846960) · [Paper 3 · Modality Paradox](https://zenodo.org/records/20364204) *(includes the Cognitive Yield / Ω fix)*
-- 🧪 **Run the code** — [`experiments/`](../experiments/) and [`aeos_sunk_cost/`](../aeos_sunk_cost/) hold every loop in this book.
-- 🔬 **See the frontier** — the sibling `aeos-lab` project is where Omega and the Lab Director are being built right now.
-- 📖 **Confused by a word?** Everything is defined in the [Glossary](glossary.md).
+- **Read the real papers** — the rigorous versions of everything here:
+ [Paper 1 · Taxonomy](https://zenodo.org/records/19551173) · [Paper 2 · Sunk-Cost](https://zenodo.org/records/19846960) · [Paper 3 · Modality Paradox](https://zenodo.org/records/20364204) *(includes the Cognitive Yield / Ω fix)*
+- **Run the code** — [`experiments/`](../experiments/) and [`aeos_sunk_cost/`](../aeos_sunk_cost/) hold every loop in this book.
+- **See the frontier** — the sibling `aeos-lab` project is where Omega and the Lab Director are being built right now.
+- **Confused by a word?** Everything is defined in the [Glossary](glossary.md).
 
 *Part of the Neuralchemy Labs research series — [neuralchemy.in](https://www.neuralchemy.in/). Built by Sanskar Jajoo.*

@@ -50,15 +50,15 @@ That's **AI-in-the-Loop**, or **AITL**. It's the whole premise of this book, and
 > *"Human-in-the-Loop is everywhere. What if I remove the human from the loop and drop an AI into that slot instead?"*
 
 ```mermaid
-flowchart TB
-    subgraph HITL["🧑 Human-in-the-Loop (the old way)"]
+    flowchart TB
+    subgraph HITL["Human-in-the-Loop (the old way)"]
         direction LR
         H1[AI tries something] --> H2[Human checks it] --> H3[Human decides next step] --> H1
-    end
-    subgraph AITL["🤖 AI-in-the-Loop (this book)"]
+end
+    subgraph AITL["AI-in-the-Loop (this book)"]
         direction LR
         A1[AI tries something] --> A2[AI checks it] --> A3[AI decides next step] --> A1
-    end
+end
     HITL -.->|"take the human<br/>out of the seat"| AITL
 
     style HITL fill:#1f2937,stroke:#9ca3af,color:#fff
@@ -72,11 +72,11 @@ The human doesn't vanish. They move **up and out** — from *operating* the loop
 Not every AI that does a task is an AITL system. For a loop to truly run itself, the AI has to own **four jobs** that a human used to own. Think of them as four hats the AI now wears:
 
 ```mermaid
-flowchart LR
-    P1["🎨 Self-Generating<br/>makes its own attempts"] --> P2["📏 Self-Evaluating<br/>scores its own results"]
-    P2 --> P3["🔧 Self-Improving<br/>changes based on the score"]
+    flowchart LR
+    P1["Self-Generating<br/>makes its own attempts"] --> P2["Self-Evaluating<br/>scores its own results"]
+    P2 --> P3["Self-Improving<br/>changes based on the score"]
     P3 --> P1
-    P4["👁️ Human-Observed<br/>a person watches the dials & holds the kill-switch"] -.-> P1
+    P4["Human-Observed<br/>a person watches the dials & holds the kill-switch"] -.-> P1
 
     style P1 fill:#7c2d12,stroke:#ea580c,color:#fff
     style P2 fill:#1e3a8a,stroke:#3b82f6,color:#fff
@@ -84,19 +84,19 @@ flowchart LR
     style P4 fill:#374151,stroke:#9ca3af,color:#fff
 ```
 
-**1. Self-Generating** 🎨 — *It makes its own attempts.*
+**1. Self-Generating** — *It makes its own attempts.*
 The AI writes the test, the code, the idea itself. Nobody hands it each attempt.
 *The HITL opposite:* a human writing out every single test case by hand.
 
-**2. Self-Evaluating** 📏 — *It scores its own results.*
+**2. Self-Evaluating** — *It scores its own results.*
 The AI judges how good each attempt was, using a number it can measure — accuracy, a loss value, a pass/fail. No human labels each one.
 *The HITL opposite:* a human clicking "good" or "bad" on every output.
 
-**3. Self-Improving** 🔧 — *It uses the score to get better.*
+**3. Self-Improving** — *It uses the score to get better.*
 The AI reads its own results and changes its next attempt because of them. That's the "loop" actually closing.
 *The HITL opposite:* a human reading a report and manually pushing the fix.
 
-**4. Human-Observed** 👁️ — *A person watches, but doesn't drive.*
+**4. Human-Observed** — *A person watches, but doesn't drive.*
 Humans set the goal and the limits (budget, time, a safety kill-switch) and monitor the big picture — but they don't touch each lap.
 *The HITL opposite:* a human being a required checkpoint on every single round.
 

@@ -1,6 +1,6 @@
 # Modality Paradox Experiments (Paper 3 Core System)
 
-> 📖 **New here?** This is the code behind **[Chapter 4 · Fixing It With Teams](../../book/04-fixing-it-with-teams.md)** of the beginner field guide — the two-agent (Reviewer + Coder) fix and the surprising "Modality Paradox" twist. Read that first for the plain-language version, then run the loops here.
+> **New here?** This is the code behind **[Chapter 4 · Fixing It With Teams](../../book/04-fixing-it-with-teams.md)** of the beginner field guide — the two-agent (Reviewer + Coder) fix and the surprising "Modality Paradox" twist. Read that first for the plain-language version, then run the loops here.
 
 [![Status: Preprint Ready](https://img.shields.io/badge/Status-Preprint_Ready-blue.svg)](#)
 [![Theme: Modality Dependent Stopping](https://img.shields.io/badge/Theme-Modality_Stopping_Anchor-green.svg)](#)
@@ -9,7 +9,7 @@ This directory contains the complete source code, evaluation runners, aggregatio
 
 ---
 
-## 🔬 Scientific Core
+## Scientific Core
 
 This system implements and benchmarks asymmetric multi-agent loops to analyze how **cognitive anchoring** and **sunk-cost fallacies** vary across different data modalities:
 1. **Tabular**: Classifiers evaluated on structured datasets (e.g. `tabular2`).
@@ -20,7 +20,7 @@ Our central hypothesis—**The Modality Paradox**—reveals that agent stopping 
 
 ---
 
-## 📂 System Directory Layout
+## System Directory Layout
 
 | Directory / File | Type | Purpose |
 |---|---|---|
@@ -40,18 +40,18 @@ Our central hypothesis—**The Modality Paradox**—reveals that agent stopping 
 
 ---
 
-## 📈 Thread Benchmark Mapping
+## Thread Benchmark Mapping
 
 We divide our validation suites into three research threads:
 
 ```mermaid
-graph TD
+    graph TD
     subgraph Modality Paradox Sweeps
         T1[Thread A: Cross-Modality Loops] -->|Orchestrated by| R1[aggregate_paper3.py]
         T2[Thread B: Puzzle Panel Benchmarks] -->|Runs on| R2[paper3_thread_b/]
         T3[Thread D: Frontier Panels & Diversity] -->|Runs on| R3[paper3_thread_d/]
-    end
-    
+end
+
     style T1 fill:#1f2937,stroke:#3b82f6,color:#fff
     style T2 fill:#1f2937,stroke:#10b981,color:#fff
     style T3 fill:#1f2937,stroke:#8b5cf6,color:#fff
@@ -59,7 +59,7 @@ graph TD
 
 ---
 
-## ⚙️ How to Reproduce Paper 3 Results
+## How to Reproduce Paper 3 Results
 
 ### 1. Configure the Environment
 Ensure you have configured your model API keys in the `.env` file (copied from `.env.example` in this folder):

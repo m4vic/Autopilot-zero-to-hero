@@ -45,10 +45,10 @@ The whole journey — the three published experiments this book is built on — 
 We solve it in three escalating ways, and that's the shape of the whole book:
 
 ```mermaid
-flowchart LR
-    A["🤖 One Model<br/>alone in a loop"] -->|"can't stop —<br/>the problem"| B["👥 A Team of Models<br/>one holds the STOP key"]
-    B -->|"better, but the<br/>judge is still guessing"| C["🧮 A Math Score<br/>the AI grades itself"]
-    C -->|"the number decides,<br/>not the talk"| D["✅ Knows when<br/>to stop"]
+    flowchart LR
+    A["One Model<br/>alone in a loop"] -->|"can't stop —<br/>the problem"| B["A Team of Models<br/>one holds the STOP key"]
+    B -->|"better, but the<br/>judge is still guessing"| C["A Math Score<br/>the AI grades itself"]
+    C -->|"the number decides,<br/>not the talk"| D["Knows when<br/>to stop"]
 
     style A fill:#7f1d1d,stroke:#b91c1c,color:#fff
     style B fill:#1e3a8a,stroke:#1d4ed8,color:#fff

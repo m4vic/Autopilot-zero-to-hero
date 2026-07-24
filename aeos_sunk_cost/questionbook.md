@@ -194,8 +194,8 @@ Different modalities reward different strategies. A truly autonomous ML engineer
 
 ## Part 5: The "Cognitive Core" Philosophy
 
-Karpathy recently noted that massive frontier models burn parameters memorizing noisy internet data. He proposed separating the "cognitive core" (a small, clean reasoning model) from external knowledge. 
-**AEOS is the empirical proof of this philosophy.** By orchestrating small local models (like Qwen 3B) as the cognitive core and pairing them with specialized critics, we aim to match the engineering performance of 1.8T parameter behemoths at a fraction of the cost. 
+Karpathy recently noted that massive frontier models burn parameters memorizing noisy internet data. He proposed separating the "cognitive core" (a small, clean reasoning model) from external knowledge.
+**AEOS is the empirical proof of this philosophy.** By orchestrating small local models (like Qwen 3B) as the cognitive core and pairing them with specialized critics, we aim to match the engineering performance of 1.8T parameter behemoths at a fraction of the cost.
 *Diversity of weights and architecture beats pure parameter bloat.*
 
 ---
@@ -235,11 +235,11 @@ For every run, we log:
 
 | Phase | What | Status |
 |---|---|---|
-| Phase 1 | LiteLLM Integration | ✅ Done |
-| Phase 1b | First local run (Qwen 9B on Covtype) | ✅ Done (81.1%) |
-| Phase 1c | Multi-dataset data loader (Covtype, 20News, MNIST) | ✅ Done |
-| Phase 1d | Orchestrator (Python logic, fixed matrix) | ✅ Done |
-| Phase 1e | EXP 1 Local Models (6/9 done, TEXT failed all 3) | ✅ Partial |
+| Phase 1 | LiteLLM Integration | Done |
+| Phase 1b | First local run (Qwen 9B on Covtype) | Done (81.1%) |
+| Phase 1c | Multi-dataset data loader (Covtype, 20News, MNIST) | Done |
+| Phase 1d | Orchestrator (Python logic, fixed matrix) | Done |
+| Phase 1e | EXP 1 Local Models (6/9 done, TEXT failed all 3) | Partial |
 | Phase 2 | EXP 1: API model runs (OpenAI, Claude) | ⬜ Next |
 | Phase 3 | Multi-agent module (Coder + Reviewer) | ⬜ Next |
 | Phase 4 | EXP 2: Multi-agent runs | ⬜ Planned |
