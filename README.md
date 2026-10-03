@@ -9,6 +9,8 @@
 [![Paper 3: Modality Paradox](https://img.shields.io/badge/Paper_3-Modality_Paradox-blue?logo=read-the-docs&logoColor=white)](https://zenodo.org/records/21534310)
 [![artifact: Page](https://img.shields.io/badge/artifact-yellow?logo=read-the-docs&logoColor=white)](https://claude.ai/code/artifact/4413a456-27c6-4791-9a14-199675072d76)
 
+
+Youtube playlist- https://youtube.com/playlist?list=PLSZTCcoNvltk3vLurx2nR2KK43HeXyuG_&si=MCp2mLyI4l5Ilcm3
 </div>
 
 ---
